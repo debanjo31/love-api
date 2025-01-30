@@ -14,7 +14,7 @@ exports.generateLetter = async (req, res) => {
   const { partnerName, memories, tone, relationshipDuration } = req.body;
 
   try {
-    const prompt = `Write a ${tone} love letter to ${partnerName} for ${relationshipDuratio} mentioning these memories: ${memories}.`;
+    const prompt = `Write a ${tone} love letter to ${partnerName} for ${relationshipDuration} mentioning these memories: ${memories}.`;
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
