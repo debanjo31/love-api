@@ -55,7 +55,7 @@ exports.generateLetter = async (req, res) => {
     - Style: ${sanitizedTone}
     - Key moments to reference: ${sanitizedMemories}
     
-    Please write a respectful and appropriate letter expressing genuine appreciation.`;
+    Please write a respectful and appropriate letter expressing genuine appreciation in not more than 150 words.`;
 
     const result = await model.generateContent({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
