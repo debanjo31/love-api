@@ -11,10 +11,10 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 //open AI
 exports.generateLetter = async (req, res) => {
-  const { partnerName, memories, tone, relationshipDuration } = req.body;
+  const {name, partnerName, memories, tone, relationshipDuration } = req.body;
 
   try {
-    const prompt = `Write a ${tone} love letter to ${partnerName} for ${relationshipDuration} mentioning these memories: ${memories}.`;
+    const prompt = `my name is ${name}, Write a ${tone} love letter to ${partnerName} for ${relationshipDuration} mentioning these memories: ${memories}.`;
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
@@ -32,12 +32,12 @@ exports.generateLetter = async (req, res) => {
 // const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // exports.generateLetter = async (req, res) => {
-//   const { partnerName, memories, tone } = req.body;
+//   const {name, partnerName, memories, tone, relationshipDuration } = req.body;
 
 //   try {
 //     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-//     const prompt = `craft a love letter that's personalized with your ${partnerName}, ${memories}, and ${tone} that reflects your feelings`;
+//        const prompt = `my name is ${name}, Write a ${tone} love letter to ${partnerName} for ${relationshipDuration} mentioning these memories: ${memories}.`;
 //     // const result = await model.generateContent(prompt);
 //     const result = await model.generateContent({
 //       contents: [{ role: "user", parts: [{ text: prompt }] }],
