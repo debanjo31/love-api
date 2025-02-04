@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/letter", letterRoutes);
+app.use("/", (req, res) => {
+  res.send("Welcome to Love API");
+});
 
 // Start Server
 app.listen(PORT, () => {
