@@ -39,7 +39,7 @@ exports.generateLetter = async (req, res) => {
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     // Sanitize inputs
     const sanitizedMemories = memories.replace(/[^\w\s,.]/g, "");
